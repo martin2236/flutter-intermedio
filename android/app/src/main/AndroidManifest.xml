@@ -24,6 +24,9 @@
     <!-- Permissions options for the `sensors` group -->
     <uses-permission android:name="android.permission.BODY_SENSORS" />
     <uses-permission android:name="android.permission.BODY_SENSORS_BACKGROUND" />
+   
+    <!-- Permissions options for the `biometrics` group -->
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
 
 
     <application
@@ -50,6 +53,17 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <!-- Deep linking -->
+            <meta-data android:name="flutter_deeplinking_enabled" android:value="true" />
+                <intent-filter android:autoVerify="true">
+                    <action android:name="android.intent.action.VIEW" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                    <category android:name="android.intent.category.BROWSABLE" />
+                    <data android:scheme="http" />
+                    <data android:scheme="https" />
+                    <!-- TODO -->
+                    <data android:host="pokemon-deep-linking-flutter.up.railway.app" />
+                </intent-filter>
         </activity>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->

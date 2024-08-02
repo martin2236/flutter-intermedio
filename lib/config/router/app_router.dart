@@ -34,10 +34,32 @@ final router = GoRouter(
         builder: (context, state) => const GiroscopioBolaScreen(),
         ),
 
+        GoRoute(
+        path: '/pokemons',
+        builder: (context, state) => const PokemonsScreen(),
+        routes: [
+          GoRoute(path: ':id',
+          builder: (context, state) {
+            final pokemonId = state.pathParameters['id'] ?? '1';
+            return PokemonScreen(pokemonId: pokemonId);
+          } ,
+          )
+        ]
+        ),
         
         GoRoute(
         path: '/brujula',
         builder: (context, state) => const BrujulaScreen(),
-        )
+        ),
+
+        GoRoute(
+        path: '/biometricos',
+        builder: (context, state) => const BiometricScreen(),
+        ),
+
+        GoRoute(
+        path: '/badge',
+        builder: (context, state) => const BadgeScreen(),
+        ),
   ]
 );

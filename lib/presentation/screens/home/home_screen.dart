@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
           )
         ],
             ),
-             MainMenu()
+            const MainMenu()
           ],
         ),
       ),

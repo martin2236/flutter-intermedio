@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:permissions/domain/config/config.dart';
-import 'package:permissions/domain/config/router/app_router.dart';
+import 'package:permissions/config/config.dart';
+import 'package:permissions/config/router/app_router.dart';
 import 'package:permissions/presentation/providers/providers.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  QuickActionPlugin.registerAction();
 
   SystemChrome.setPreferredOrientations([ 
     DeviceOrientation.portraitUp
